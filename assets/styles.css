@@ -21,6 +21,27 @@ body {
     min-height: 100vh;
 }
 
+.md__container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* HEADER */
+
+.md__header {
+    padding: 10px 0;
+}
+
+.md__header .header-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.md__header a {
+    text-decoration: none;
+    color: inherit;
+}
 
 /* FOOTER */
 
