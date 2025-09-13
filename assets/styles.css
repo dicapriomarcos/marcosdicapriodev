@@ -9,6 +9,16 @@
     --md-link-color: #007bff;
 }
 
+
+/* NORMALICE */
+
+nav ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+/* BODY */
+
 body {
     font-family: 'Nunito Sans', sans-serif;
     line-height: 1.58;

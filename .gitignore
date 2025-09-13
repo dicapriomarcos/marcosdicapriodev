@@ -23,3 +23,107 @@ scss/.sass-cache/
 .vscode/
 .idea/
 *.sublime-*
+
+# Archivos de entorno
+.env
+.env.*
+!.env.example
+
+# Dependencias
+package-lock.json
+yarn.lock
+composer.lock
+
+# Editor
+.idea/
+.vscode/
+*.sublime-*
+*.sublime-project
+*.sublime-workspace
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+debug.log
+*.log
+
+# Archivos temporales
+*.tmp
+*.temp
+*.bak
+*.swp
+*~.nib
+
+# Archivos de desarrollo
+*.sass-cache
+*.css.map
+*.sass.map
+*.scss.map
+
+# WordPress
+wp-config.php
+wp-config-*.php
+wp-content/advanced-cache.php
+wp-content/backup-db/
+wp-content/backups/
+wp-content/blogs.dir/
+wp-content/cache/
+wp-content/upgrade/
+wp-content/uploads/
+wp-content/w3tc-config/
+wp-content/wp-cache-config.php
+wp-content/backupwordpress-*-backups/
+wp-content/updraft/
+wp-content/ai1wm-backups/
+wp-content/plugins/hello.php
+wp-content/plugins/akismet/
+
+# Archivos específicos del tema
+assets/css/*.css
+!assets/css/style.min.css
+assets/js/*.js
+!assets/js/scripts.min.js
+
+# Archivos de configuración local
+wp-config-local.php
+wp-config.php.bak
+
+# Archivos de respaldo
+*.bak
+*.backup
+*.backup*
+*.*~
+*~
+
+# Archivos de desarrollo local
+*.local
+*.local.*
+
+# Archivos de entorno de desarrollo
+.env.development
+.env.test
+.env.production
+
+# VS Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# PHPStorm
+.idea/*
+!.idea/vcs.xml
+!.idea/php.xml
+
+# Archivos de sistema
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
