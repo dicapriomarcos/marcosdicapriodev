@@ -15,11 +15,13 @@
                 </div>
                 <nav id="site-navigation" class="md__main-navigation" role="navigation">
                     <?php
+                    /*
                 wp_nav_menu( array(
                     'theme_location' => 'primary',
                     'menu_id'        => 'primary-menu',
                     'container'      => false,
                 ) );
+                 */
                 ?>
                 </nav>
             </div>

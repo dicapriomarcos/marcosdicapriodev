@@ -7,6 +7,7 @@ if (!defined('MD_THEME_VERSION')) {
     define('MD_THEME_VERSION', $theme->get('Version'));
 }
 
+
 /**
  * Carga los estilos y scripts del tema
  */
@@ -19,13 +20,5 @@ function md_enqueue_styles() {
         MD_THEME_VERSION
     );
     
-    // Scripts
-    wp_enqueue_script(
-        'md-scripts', 
-        get_template_directory_uri() . '/assets/js/main.js', 
-        array('jquery'), 
-        MD_THEME_VERSION, 
-        true
-    );
 }
 add_action('wp_enqueue_scripts', 'md_enqueue_styles');
