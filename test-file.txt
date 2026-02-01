@@ -1,0 +1,2 @@
+Este es un archivo de prueba para demostrar el flujo de trabajo.
+Creado: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')
