@@ -12,11 +12,16 @@
 						<time datetime="<?php echo get_the_date('c'); ?>"><?php the_time(get_option('date_format')); ?></time>
 						<span class="sep"> | </span>
 						<span class="reading-time"><?php echo mdw_reading_time(); ?></span>
-						<?php if (has_category()): ?>
-							<span class="sep"> | </span>
-							<span class="cat-links"><?php the_category(', '); ?></span>
 						<?php
-		endif; ?>
+						$categories = get_the_category();
+						if (!empty($categories)): ?>
+							<span class="sep"> | </span>
+							<span class="cat-links">
+								<?php foreach ($categories as $category): ?>
+									<a href="<?php echo esc_url(get_category_link($category->term_id)); ?>"><?php echo esc_html($category->name); ?></a>
+								<?php endforeach; ?>
+							</span>
+						<?php endif; ?>
 					</div>
 
 					<h2 class="post-title">
