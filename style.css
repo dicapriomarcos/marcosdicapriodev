@@ -1,0 +1,522 @@
+/*
+Theme Name: marcosdicaprio.dev
+Author: Marcos DiCaprio
+Description: Un tema clásico minimalista, accesible y optimizado para SEO con estética técnica.
+Version: 1.0.0
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;700&display=swap');
+
+:root {
+    --font-sans: 'Lato', sans-serif;
+    --font-serif: 'Lato', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+
+    --color-bg: #FAFAFA;
+    --color-ink: #2b2b2b;
+    /* Suavizado a un gris muy oscuro */
+    --color-ink-muted: #666666;
+    --color-border: #EAEAEA;
+    --color-accent: #0073aa;
+    --color-toc-bg: #f5f7f9;
+    /* Subtle blue/gray background for TOC */
+    --color-code-bg: #1A1A1A;
+    --header-height: 80px;
+}
+
+/* Dark Mode Variables */
+body.dark-mode {
+    --color-bg: #111111;
+    --color-ink: #FAFAFA;
+    --color-ink-muted: #A0A0A0;
+    --color-border: #333333;
+    --color-accent: #4aa0d5;
+    /* Lighter WordPress Blue for contrast */
+    --color-toc-bg: #1e1e1e;
+    /* Darker grey for TOC in dark mode */
+    --color-code-bg: #000000;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-bg);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    padding-top: var(--header-height);
+    /* Prevent content from hiding under fixed header */
+}
+
+/* Typography & Content Rules */
+.entry-content p {
+    font-family: var(--font-serif);
+    font-size: 1.125rem;
+    line-height: 1.75;
+    margin-bottom: 1.5rem;
+    color: var(--color-ink);
+}
+
+.entry-content h1,
+.entry-content h2,
+.entry-content h3,
+.entry-content h4,
+.entry-content h5,
+.entry-content h6 {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    color: var(--color-ink);
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.entry-content a {
+    color: var(--color-ink);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-color: var(--color-border);
+    transition: all 0.2s ease;
+}
+
+.entry-content a:hover {
+    text-decoration-color: var(--color-ink);
+    color: var(--color-accent);
+}
+
+.entry-content pre {
+    background-color: var(--color-code-bg);
+    color: #E5E5E5;
+    font-family: var(--font-mono);
+    padding: 1.5rem;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin-bottom: 1.5rem;
+}
+
+.entry-content code {
+    background-color: var(--color-border);
+    font-family: var(--font-mono);
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    color: var(--color-ink);
+    font-size: 0.9em;
+}
+
+.entry-content pre code {
+    background-color: transparent;
+    padding: 0;
+    color: inherit;
+    font-size: 0.9em;
+    border-radius: 0;
+}
+
+.entry-content blockquote {
+    border-left: 4px solid var(--color-accent);
+    background-color: var(--color-toc-bg);
+    padding: 1.5rem 1.5rem;
+    font-family: var(--font-serif);
+    font-style: italic;
+    color: var(--color-ink-muted);
+    margin: 1.5rem 0;
+    border-radius: 0 8px 8px 0;
+}
+
+.entry-content ul,
+.entry-content ol {
+    font-family: var(--font-serif);
+    font-size: 1.125rem;
+    line-height: 1.75;
+    margin-bottom: 1.5rem;
+    padding-left: 2rem;
+}
+
+/* Table of Contents */
+.mdw-toc {
+    background-color: var(--color-toc-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 1.5rem 2rem;
+    margin: 2rem 0 3rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+}
+
+.mdw-toc h2 {
+    font-family: var(--font-sans);
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: var(--color-ink);
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 0.5rem;
+}
+
+.mdw-toc ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.mdw-toc ul ul {
+    padding-left: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+.mdw-toc li {
+    margin-bottom: 0.75rem;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+}
+
+.mdw-toc li:last-child {
+    margin-bottom: 0;
+}
+
+.mdw-toc a {
+    color: var(--color-ink-muted);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.mdw-toc a:hover {
+    color: var(--color-accent);
+    text-decoration: none;
+}
+
+/* Make target headings highlight briefly when jumped to */
+@keyframes target-highlight {
+    0% {
+        background-color: rgba(0, 115, 170, 0.2);
+    }
+
+    100% {
+        background-color: transparent;
+    }
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+:target {
+    animation: target-highlight 2s ease-out;
+    scroll-margin-top: calc(var(--header-height) + 2rem);
+}
+
+/* Layout */
+.site-header {
+    padding: 0 2rem;
+    height: var(--header-height);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--color-border);
+    background-color: var(--color-bg);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.site-header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.site-title {
+    font-family: var(--font-mono);
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.site-title a {
+    color: var(--color-ink);
+    text-decoration: none;
+}
+
+.site-header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.site-header nav a {
+    font-family: var(--font-sans);
+    color: var(--color-ink-muted);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.site-header nav a:hover {
+    color: var(--color-accent);
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.social-links {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.social-links a {
+    color: var(--color-ink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.social-links a:hover {
+    color: var(--color-accent);
+    transform: translateY(-2px);
+}
+
+.social-links svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
+
+.theme-toggle {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--color-ink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.theme-toggle:hover {
+    background-color: var(--color-border);
+    color: var(--color-accent);
+}
+
+.theme-toggle svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
+
+/* Hide sun in dark mode, hide moon in light mode */
+body.dark-mode .icon-moon {
+    display: none;
+}
+
+body:not(.dark-mode) .icon-sun {
+    display: none;
+}
+
+.site-main {
+    max-width: 900px;
+    margin: 4rem auto;
+    /* Removed padding: 0 2rem; to allow content to hit the edges */
+}
+
+.site-main.single-post {
+    /* Removed max-width restriction to allow full container width (900px) */
+    padding: 0;
+    /* Clear any residual padding */
+}
+
+/* Loop & Post List */
+.post-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.post-item {
+    margin-bottom: 4rem;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 3rem;
+}
+
+.post-item:last-child {
+    border-bottom: none;
+}
+
+.post-meta {
+    font-family: var(--font-mono);
+    color: var(--color-ink-muted);
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+}
+
+.post-item .post-title {
+    font-size: 2rem;
+    font-family: var(--font-sans);
+    margin: 0 0 1rem;
+}
+
+.post-item .post-title a {
+    color: var(--color-ink);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.post-item .post-title a:hover {
+    color: var(--color-accent);
+}
+
+.post-item .post-excerpt {
+    font-family: var(--font-serif);
+    color: var(--color-ink-muted);
+    font-size: 1.125rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Single Post Specifics */
+.post-header {
+    margin-bottom: 3rem;
+}
+
+.post-header .post-title {
+    font-size: 3rem;
+    font-family: var(--font-sans);
+    margin: 0 0 1rem;
+    line-height: 1.2;
+}
+
+.post-header .post-meta {
+    font-family: var(--font-mono);
+    color: var(--color-ink-muted);
+}
+
+.post-share {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--color-border);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.share-title {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    color: var(--color-ink-muted);
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.share-links {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.share-links a,
+.share-links button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: var(--color-ink);
+    background-color: transparent;
+    border: 1px solid var(--color-border);
+    transition: all 0.2s ease;
+    cursor: pointer;
+    padding: 0;
+}
+
+.share-links svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+}
+
+/* Hover effects for specific social networks */
+.share-links a:hover,
+.share-links button:hover {
+    transform: translateY(-3px);
+    border-color: currentColor;
+}
+
+.share-linkedin:hover {
+    color: #0077b5;
+}
+
+.share-x:hover {
+    color: var(--color-ink);
+    border-color: var(--color-ink);
+}
+
+.share-facebook:hover {
+    color: #1877F2;
+}
+
+.share-whatsapp:hover {
+    color: #25D366;
+}
+
+.copy-link-btn:hover {
+    color: var(--color-accent);
+}
+
+.copy-feedback-msg {
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    color: #25D366;
+    background-color: rgba(37, 211, 102, 0.1);
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    margin-top: 0.5rem;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.site-footer {
+    text-align: center;
+    border-top: 1px solid var(--color-border);
+    font-family: var(--font-sans);
+    color: var(--color-ink-muted);
+    font-size: 0.875rem;
+    width: 100%;
+}
+
+.site-info {
+    padding: 3rem 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Utility to ensure responsiveness */
+img,
+video {
+    max-width: 100%;
+    height: auto;
+}
