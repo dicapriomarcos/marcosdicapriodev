@@ -13,3 +13,4 @@ require_once MDW_THEME_DIR . '/inc/reading-time.php';
 require_once MDW_THEME_DIR . '/inc/toc.php';
 require_once MDW_THEME_DIR . '/inc/disable-gutenberg.php';
 require_once MDW_THEME_DIR . '/inc/disable-comments.php';
+require_once MDW_THEME_DIR . '/inc/exclude-uncategorized.php';
