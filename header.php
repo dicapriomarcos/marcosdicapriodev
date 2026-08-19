@@ -4,7 +4,7 @@
 	<meta charset="<?php bloginfo('charset'); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-	<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+	<link rel="icon" type="image/svg+xml" href="<?php echo esc_url(get_template_directory_uri() . '/assets/images/marcosdicaprio-md-monograma.svg'); ?>" />
 	<link rel="shortcut icon" href="/favicon.ico" />
 	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 	<meta name="apple-mobile-web-app-title" content="marcosdicaprio.dev" />
@@ -12,26 +12,55 @@
 	<?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?>>
+<body id="top" <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 
 <header class="site-header">
 	<div class="site-header-inner">
-		<h1 class="site-title"><a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a></h1>
-		
-		<div class="header-actions">
-			<?php if (has_nav_menu('primary')): ?>
-				<nav>
+		<div class="site-brand">
+			<a class="site-brand__link" href="<?php echo esc_url(home_url('/')); ?>" rel="home">
+				<?php if (has_custom_logo()) : ?>
+					<?php
+					echo wp_get_attachment_image(
+						(int) get_theme_mod('custom_logo'),
+						'full',
+						false,
+						array(
+							'class'    => 'custom-logo',
+							'alt'      => '',
+							'aria-hidden' => 'true',
+						)
+					);
+					?>
+				<?php else : ?>
+					<span class="site-brand__mark" aria-hidden="true">
+						<img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/marcosdicaprio-md-monograma.svg'); ?>" alt="" width="36" height="27">
+					</span>
+				<?php endif; ?>
+				<span class="site-brand__name">
+					<span class="site-brand__word">marcosdicaprio</span>
+					<span class="site-brand__suffix"><span class="site-brand__dot">.</span>dev</span>
+				</span>
+			</a>
+		</div>
+
+		<button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="header-actions">
+			<span class="screen-reader-text"><?php esc_html_e('Abrir menú', 'marcosdicapriodev'); ?></span>
+			<span aria-hidden="true"></span><span aria-hidden="true"></span>
+		</button>
+
+		<div class="header-actions" id="header-actions">
+			<nav class="primary-navigation" aria-label="<?php esc_attr_e('Navegación principal', 'marcosdicapriodev'); ?>">
 					<?php
 	wp_nav_menu(array(
 		'theme_location' => 'primary',
 		'menu_id' => 'primary-menu',
+		'menu_class' => 'primary-menu',
 		'container' => false,
+		'fallback_cb' => 'mdw_fallback_menu',
 	));
 ?>
-				</nav>
-			<?php
-endif; ?>
+			</nav>
 
 			<div class="social-links">
 				<a href="https://github.com/dicapriomarcos" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
@@ -42,7 +71,7 @@ endif; ?>
 				</a>
 			</div>
 			
-			<button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark Mode">
+			<button id="theme-toggle" class="theme-toggle" type="button" aria-label="<?php esc_attr_e('Cambiar modo de color', 'marcosdicapriodev'); ?>">
 				<svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18.75a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-1.5a.75.75 0 01.75-.75zM6.166 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.06 1.061l1.59 1.59zM4.5 12a.75.75 0 01-.75.75H1.5a.75.75 0 010-1.5h2.25a.75.75 0 01.75.75zM6.166 6.166a.75.75 0 001.06 1.06l-1.59-1.59a.75.75 0 00-1.06 1.06l1.59 1.591z"/></svg>
 				<svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 01.818.162z"/></svg>
 			</button>

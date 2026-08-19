@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="75 106 372 276"
+     role="img"
+     aria-labelledby="title desc">
+  <title id="title">Monograma MD</title>
+  <desc id="desc">Monograma vectorial de las letras minúsculas m y d.</desc>
+
+  <g class="md-mark"
+     fill="none"
+     stroke="currentColor"
+     stroke-width="34"
+     stroke-linecap="round"
+     stroke-linejoin="round">
+    <path d="M92 365V236
+             C92 199 116 177 149 177
+             C182 177 206 199 206 236
+             V365
+             M206 236
+             C206 199 230 177 263 177
+             C294 177 317 198 319 232"/>
+
+    <path d="M319 232
+             C319 198 343 177 376 177
+             C408 177 430 200 430 234
+             V326
+             C430 350 408 365 376 365
+             C343 365 319 347 319 316
+             Z
+             M430 234V123"/>
+  </g>
+</svg>

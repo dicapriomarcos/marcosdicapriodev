@@ -1,6 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
     const themeToggleBtn = document.getElementById('theme-toggle');
+    const menuToggleBtn = document.getElementById('menu-toggle');
+    const headerActions = document.getElementById('header-actions');
     const body = document.body;
+
+    // Use a larger brand at the top and compact it after the page starts moving.
+    const updateScrolledState = () => {
+        body.classList.toggle('is-scrolled', window.scrollY > 24);
+    };
+
+    updateScrolledState();
+    window.addEventListener('scroll', updateScrolledState, { passive: true });
 
     // Check for saved user preference, if any, on load
     const savedTheme = localStorage.getItem('theme');
@@ -8,17 +18,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Check for OS preference
     const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
 
-    // Check time of day (apply dark mode after 19:00 local time)
-    const currentHour = new Date().getHours();
-    const isEvening = currentHour >= 19 || currentHour < 6; // Dark mode from 19:00 to 05:59
-
     // Apply theme on load
     if (savedTheme === 'dark') {
         body.classList.add('dark-mode');
     } else if (savedTheme === 'light') {
         body.classList.remove('dark-mode');
-    } else if (isEvening) {
-        body.classList.add('dark-mode'); // Prioritize time-based dark mode
     } else if (prefersDarkScheme.matches) {
         body.classList.add('dark-mode');
     }
@@ -34,6 +38,21 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 localStorage.setItem('theme', 'light');
             }
+        });
+    }
+
+    // Mobile navigation.
+    if (menuToggleBtn && headerActions) {
+        menuToggleBtn.addEventListener('click', () => {
+            const isOpen = body.classList.toggle('menu-open');
+            menuToggleBtn.setAttribute('aria-expanded', String(isOpen));
+        });
+
+        headerActions.querySelectorAll('a').forEach((link) => {
+            link.addEventListener('click', () => {
+                body.classList.remove('menu-open');
+                menuToggleBtn.setAttribute('aria-expanded', 'false');
+            });
         });
     }
 
