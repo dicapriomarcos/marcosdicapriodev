@@ -5,7 +5,7 @@ Un tema clásico, minimalista, accesible y optimizado para SEO con una estética
 ## Características Principales
 
 - 🌗 **Modo Claro / Oscuro**: Soporte nativo para alternar entre temas claro y oscuro, con persistencia.
-- ⚡ **Sin Gutenberg**: Utiliza el editor clásico (deshabilita Gutenberg) para una experiencia de escritura más limpia, rápida y centrada en el contenido.
+- ✍️ **Editor de bloques**: Compatible con Gutenberg para crear y editar contenido con los bloques nativos de WordPress.
 - ⏱️ **Tiempo de Lectura**: Cálculo y visualización automática del tiempo estimado de lectura en las publicaciones.
 - 📑 **Tabla de Contenidos (TOC)**: Generación automática e interactiva de índices para los artículos, mejorando la navegación y la experiencia de usuario.
 - 🚫 **Comentarios Desactivados**: Sistema de comentarios desactivado por defecto a nivel global para mantener un diseño limpio (ideal para portfolios o blogs técnicos unidireccionales).
@@ -20,7 +20,7 @@ La configuración y funcionalidades principales del tema se gestionan de manera 
 - `enqueue.php`: Carga estructurada de estilos (`style.css`), scripts y fuentes de Google.
 - `reading-time.php`: Lógica y marcado para mostrar el tiempo de lectura estimado.
 - `toc.php`: Funcionalidades requeridas para listar dinámicamente el contenido del artículo.
-- `disable-gutenberg.php`: Filtros para deshabilitar el editor de bloques de WordPress moderno.
+- `disable-gutenberg.php`: Punto de extensión para futuras personalizaciones del editor de bloques.
 - `disable-comments.php`: Filtros y limpieza para erradicar cualquier rastro del sistema de comentarios.
 
 ## Instalación

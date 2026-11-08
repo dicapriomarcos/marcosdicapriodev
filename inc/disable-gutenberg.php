@@ -1,5 +1,7 @@
 <?php
 /**
- * Disable Gutenberg Editor
+ * Block editor settings.
+ *
+ * Gutenberg is enabled by default. This file remains available for future
+ * editor-specific customizations.
  */
-add_filter('use_block_editor_for_post', '__return_false', 10);
