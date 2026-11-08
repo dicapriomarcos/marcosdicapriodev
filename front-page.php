@@ -19,11 +19,11 @@ $latest_posts = new WP_Query(array(
 <main class="site-main site-main--archive">
 	<section class="home-hero" aria-labelledby="home-hero-title">
 		<h1 id="home-hero-title" class="hero-title">
-			<span><?php esc_html_e('Código y producto', 'marcosdicapriodev'); ?></span>
-			<span><em><?php esc_html_e('digital', 'marcosdicapriodev'); ?></em> <strong class="hero-title__marker"><?php esc_html_e('bien hecho', 'marcosdicapriodev'); ?></strong><span class="hero-title__dot">.</span></span>
+			<span><?php esc_html_e('Programación, IA', 'marcosdicapriodev'); ?></span>
+			<span><em><?php esc_html_e('y', 'marcosdicapriodev'); ?></em> <strong class="hero-title__marker"><?php esc_html_e('WordPress', 'marcosdicapriodev'); ?></strong><span class="hero-title__dot">.</span></span>
 		</h1>
 		<p class="hero-copy">
-			<?php esc_html_e('Desarrollo web profesional a medida para WordPress', 'marcosdicapriodev'); ?>
+			<?php esc_html_e('Escribo sobre desarrollo WordPress e inteligencia artificial, y comparto el código y los plugins que construyo.', 'marcosdicapriodev'); ?>
 		</p>
 		<a class="hero-scroll" href="#latest-posts">
 			<span><?php esc_html_e('Ver artículos', 'marcosdicapriodev'); ?></span>
@@ -33,7 +33,7 @@ $latest_posts = new WP_Query(array(
 
 	<section class="archive-section" id="latest-posts" aria-labelledby="archive-title">
 		<header class="section-heading">
-			<p class="section-kicker"><?php esc_html_e('Cuaderno digital', 'marcosdicapriodev'); ?></p>
+			<p class="section-kicker"><?php esc_html_e('Blog y código abierto', 'marcosdicapriodev'); ?></p>
 			<h2 id="archive-title"><?php esc_html_e('Últimos artículos', 'marcosdicapriodev'); ?></h2>
 		</header>
 
